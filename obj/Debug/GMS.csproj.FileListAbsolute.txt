@@ -37,3 +37,4 @@ C:\Users\User\Desktop\VS Project\GMS\obj\Debug\GMS.Menu.resources
 C:\Users\User\Desktop\VS Project\GMS\obj\Debug\GMS.Branch.resources
 C:\Users\User\Desktop\VS Project\GMS\obj\Debug\GMS.Trainer.resources
 C:\Users\User\Desktop\VS Project\GMS\obj\Debug\GMS.Member.resources
+C:\Users\User\Desktop\VS Project\GMS\obj\Debug\GMS.Staff.resources

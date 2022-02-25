@@ -67,5 +67,12 @@ namespace GMS
             log.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Staff log = new Staff();
+            log.Show();
+            this.Hide();
+        }
     }
 }
