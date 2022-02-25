@@ -1,0 +1,85 @@
+CREATE DATABASE sdp;
+
+CREATE TABLE branch(
+    br_id int(11) PRIMARY KEY,
+    br_name VARCHAR(25),
+    br_address VARCHAR(100)
+);
+
+CREATE TABLE schedule(
+    sc_id VARCHAR(10) PRIMARY KEY,
+    sc_name VARCHAR(25),
+    description VARCHAR(100)
+);
+
+CREATE TABLE trainer(
+    t_id int(11) AUTO_INCREMENT PRIMARY KEY,
+    t_name VARCHAR(25),
+    t_address VARCHAR(100),
+    t_num VARCHAR(255) UNIQUE,
+    payment int(11), 
+    stay_date DATE,
+    reg_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    sc_id VARCHAR(10),
+    br_id INT(11),
+    FOREIGN KEY (sc_id) REFERENCES schedule(sc_id),
+    FOREIGN KEY (br_id) REFERENCES branch(br_id)
+);
+ALTER TABLE trainer AUTO_INCREMENT=999;
+
+CREATE TABLE member(
+    m_id int(11) AUTO_INCREMENT PRIMARY KEY,
+    m_name VARCHAR(25),
+    m_address VARCHAR(100),
+    m_num VARCHAR(255) UNIQUE,
+    fees int(11), 
+    reg_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    mem_status VARCHAR(25),
+    t_id int(11),
+    sc_id VARCHAR(10),
+    br_id INT(11),
+    FOREIGN KEY (t_id) REFERENCES trainer(t_id),
+    FOREIGN KEY (sc_id) REFERENCES schedule(sc_id),
+    FOREIGN KEY (br_id) REFERENCES branch(br_id)
+);
+ALTER TABLE member AUTO_INCREMENT=2000;
+
+CREATE TABLE staff(
+    s_id int(11) AUTO_INCREMENT PRIMARY KEY,
+    s_name VARCHAR(25),
+    s_address VARCHAR(100),
+    s_num VARCHAR(255) UNIQUE,
+    work VARCHAR(25),
+    wage int(11), 
+    join_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    br_id INT(11),
+    FOREIGN KEY (br_id) REFERENCES branch(br_id)
+);
+
+CREATE TABLE equipment(
+    e_id VARCHAR(10) PRIMARY KEY,
+    e_name VARCHAR(25),
+    specification VARCHAR(100),
+    e_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    qnt int(11),
+    u_price int(11),
+    br_id INT(11),
+    FOREIGN KEY (br_id) REFERENCES branch(br_id)
+);
+
+CREATE TABLE cost(
+    c_id int(11) AUTO_INCREMENT PRIMARY KEY,
+    c_name VARCHAR(25),
+    amount int(11),
+    details VARCHAR(100),
+    c_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    br_id INT(11),
+    FOREIGN KEY (br_id) REFERENCES branch(br_id)
+);
+
+INSERT INTO `schedule` (`sc_id`, `sc_name`, `description`) 
+VALUES ('MOR1', 'Early Morning', 'From 07:00AM to 10:00AM'), 
+('MOR2', 'Late Morning', 'From 10:00AM to 01:00PM');
+
+INSERT INTO `trainer` (`t_id`, `t_name`, `t_address`, `t_num`, `payment`, `stay_date`, `reg_date`, `sc_id`, `br_id`) 
+VALUES (NULL, 'Azizul Hoque', 'Block-C, Building no. 4, Mirpur-12, Dhaka-1216', '+8801789421563', '5000', '2022-03-31', current_timestamp(), 'MOR1', '1');
