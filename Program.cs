@@ -17,7 +17,7 @@ namespace GMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Start());
-            //Application.Run(new Staff());
+            //Application.Run(new Login());
         }
     }
 }
