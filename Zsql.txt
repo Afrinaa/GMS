@@ -38,7 +38,6 @@ CREATE TABLE member(
     t_id int(11),
     sc_id VARCHAR(10),
     br_id INT(11),
-    FOREIGN KEY (t_id) REFERENCES trainer(t_id),
     FOREIGN KEY (sc_id) REFERENCES schedule(sc_id),
     FOREIGN KEY (br_id) REFERENCES branch(br_id)
 );
@@ -57,22 +56,24 @@ CREATE TABLE staff(
 );
 
 CREATE TABLE equipment(
-    e_id VARCHAR(10) PRIMARY KEY,
+    e_id int(11) AUTO_INCREMENT PRIMARY KEY,
     e_name VARCHAR(25),
     specification VARCHAR(100),
-    e_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     qnt int(11),
     u_price int(11),
     br_id INT(11),
     FOREIGN KEY (br_id) REFERENCES branch(br_id)
 );
+ALTER TABLE equipment AUTO_INCREMENT=11;
 
 CREATE TABLE cost(
     c_id int(11) AUTO_INCREMENT PRIMARY KEY,
     c_name VARCHAR(25),
     amount int(11),
+    quantity int(11),
+    total int(11),
     details VARCHAR(100),
-    c_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    c_date DATE,
     br_id INT(11),
     FOREIGN KEY (br_id) REFERENCES branch(br_id)
 );

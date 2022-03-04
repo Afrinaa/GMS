@@ -10,7 +10,7 @@ namespace GMS
     {
         public static string ConnectionString()
         {
-            string constring = "Server=localhost; Database=sdp; Uid=root; Pwd=''; SslMode=none";
+            string constring = "Server=localhost; Database=sdp; Uid=root; Pwd=''; convert zero datetime=True; SslMode=none";
             return constring;
         }
     }

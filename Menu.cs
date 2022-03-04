@@ -26,7 +26,9 @@ namespace GMS
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            Equipment log = new Equipment();
+            log.Show();
+            this.Hide();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -58,7 +60,9 @@ namespace GMS
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            Transaction log = new Transaction();
+            log.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,6 +75,13 @@ namespace GMS
         private void button3_Click(object sender, EventArgs e)
         {
             Staff log = new Staff();
+            log.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Schedule log = new Schedule();
             log.Show();
             this.Hide();
         }
