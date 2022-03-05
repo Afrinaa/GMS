@@ -18,6 +18,7 @@ namespace GMS
             InitializeComponent();
         }
         private int id;
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -185,6 +186,61 @@ namespace GMS
             dt.Load(sdr);
             con.Close();
             CostView.DataSource = dt;
+        }
+        Bitmap bmp;
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        private void print_btn_Click(object sender, EventArgs e)
+        {
+            int height = CostView.Height;
+            CostView.Height = CostView.RowCount*CostView.RowTemplate.Height*2;
+            bmp = new Bitmap(CostView.Width, CostView.Height);
+            CostView.DrawToBitmap(bmp, new Rectangle(0, 0, CostView.Width, CostView.Height));
+            printPreviewDialog1.PrintPreviewControl.Zoom=1;
+            printPreviewDialog1.ShowDialog();
+            CostView.Height -= height;
+        }
+
+        private void preview_btn_Click(object sender, EventArgs e)
+        {
+            txtResult.Clear();
+            txtResult.Text += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+            txtResult.Text += "~~~~~~~~~~~~~~~~~~~~~~ Valerie GYM ~~~~~~~~~~~~~~~~~~~~~~\n";
+            txtResult.Text += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+            txtResult.Text += "\t\t\t\t         Date: "+DateTime.Now+"\n\n";
+
+            txtResult.Text += "Transaction ID: " + cid.Text + "\n";
+            txtResult.Text += "Name: " + cname.Text + "\n";
+            txtResult.Text += "Unit Cost: " + unit.Text + "\n";
+            txtResult.Text += "Quantity: " + quantity.Text + "\n";
+            txtResult.Text += "Total: " + total.Text + "\n";
+            txtResult.Text += "Reference ID: " + refid.Text + "\n";
+            txtResult.Text += "Details: " + details.Text + "\n";
+            txtResult.Text += "Pay Date: " + dateTimePicker1.Text + "\n";
+            txtResult.Text += "Branch No: " + br_id.Text + "\n\n\n\n";
+            txtResult.Text += "\t\t\t\t\t\t__________\n\n";
+            txtResult.Text += "\t\t\t\t\t\tSignature\n\n";
+
+
+        }
+
+        private void cname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void receipt_btn_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog2.Document = printDocument2;
+            printPreviewDialog2.ShowDialog();
+        }
+
+        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(txtResult.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(10, 10));
         }
     }
 }

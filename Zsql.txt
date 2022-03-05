@@ -79,7 +79,7 @@ ALTER TABLE equipment AUTO_INCREMENT=11;
 
 CREATE TABLE cost(
     c_id int(11) AUTO_INCREMENT PRIMARY KEY,
-    c_name VARCHAR(25),
+    c_name VARCHAR(100),
     amount int(11),
     quantity int(11),
     total int(11),
