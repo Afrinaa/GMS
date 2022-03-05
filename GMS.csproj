@@ -175,6 +175,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
@@ -204,6 +205,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Pink Dumbbell.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\member.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\trainer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Staff.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Branch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Equipment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Taka %282%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
