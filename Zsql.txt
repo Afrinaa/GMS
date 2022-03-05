@@ -1,5 +1,15 @@
 CREATE DATABASE sdp;
 
+CREATE TABLE admin(
+    id int PRIMARY KEY,
+    name VARCHAR(25),
+    password VARCHAR(100)
+);
+INSERT INTO `admin` (`id`, `name`, `password`) 
+VALUES ('1', 'Afrina ', 'admin310'), 
+       ('2', 'Abani', 'admin528'), 
+       ('3', 'Tasnim', 'admin313');
+
 CREATE TABLE branch(
     br_id int(11) PRIMARY KEY,
     br_name VARCHAR(25),
@@ -54,6 +64,7 @@ CREATE TABLE staff(
     br_id INT(11),
     FOREIGN KEY (br_id) REFERENCES branch(br_id)
 );
+ALTER TABLE staff AUTO_INCREMENT=3000;
 
 CREATE TABLE equipment(
     e_id int(11) AUTO_INCREMENT PRIMARY KEY,
@@ -77,10 +88,5 @@ CREATE TABLE cost(
     br_id INT(11),
     FOREIGN KEY (br_id) REFERENCES branch(br_id)
 );
-
-INSERT INTO `schedule` (`sc_id`, `sc_name`, `description`) 
-VALUES ('MOR1', 'Early Morning', 'From 07:00AM to 10:00AM'), 
-('MOR2', 'Late Morning', 'From 10:00AM to 01:00PM');
-
-INSERT INTO `trainer` (`t_id`, `t_name`, `t_address`, `t_num`, `payment`, `stay_date`, `reg_date`, `sc_id`, `br_id`) 
-VALUES (NULL, 'Azizul Hoque', 'Block-C, Building no. 4, Mirpur-12, Dhaka-1216', '+8801789421563', '5000', '2022-03-31', current_timestamp(), 'MOR1', '1');
+ALTER TABLE cost
+ADD ref_id int(11);

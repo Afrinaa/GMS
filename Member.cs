@@ -94,12 +94,12 @@ namespace GMS
             mname.Text = MemberView.SelectedRows[0].Cells[1].Value.ToString();
             maddress.Text = MemberView.SelectedRows[0].Cells[2].Value.ToString();
             mnum.Text = MemberView.SelectedRows[0].Cells[3].Value.ToString();
-            regdate.Text = MemberView.Rows[0].Cells[5].Value.ToString();
-            fees.Text = MemberView.Rows[0].Cells[4].Value.ToString();
-            mem_status.Text = MemberView.Rows[0].Cells[9].Value.ToString();
-            t_id.Text = MemberView.Rows[0].Cells[6].Value.ToString();
-            sc_id.Text = MemberView.Rows[0].Cells[7].Value.ToString();
-            br_id.Text = MemberView.Rows[0].Cells[8].Value.ToString();
+            regdate.Text = MemberView.SelectedRows[0].Cells[5].Value.ToString();
+            fees.Text = MemberView.SelectedRows[0].Cells[4].Value.ToString();
+            mem_status.Text = MemberView.SelectedRows[0].Cells[6].Value.ToString();
+            t_id.Text = MemberView.SelectedRows[0].Cells[7].Value.ToString();
+            sc_id.Text = MemberView.SelectedRows[0].Cells[8].Value.ToString(); 
+            br_id.Text = MemberView.SelectedRows[0].Cells[9].Value.ToString();
         }
 
         private void update_btn_Click(object sender, EventArgs e)

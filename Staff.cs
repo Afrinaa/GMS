@@ -37,8 +37,8 @@ namespace GMS
             sname.Text = StaffView.SelectedRows[0].Cells[1].Value.ToString();
             saddress.Text = StaffView.SelectedRows[0].Cells[2].Value.ToString();
             snum.Text = StaffView.SelectedRows[0].Cells[3].Value.ToString();
-            work.Text = StaffView.Rows[0].Cells[4].Value.ToString();
-            wage.Text = StaffView.Rows[0].Cells[5].Value.ToString();
+            work.Text = StaffView.SelectedRows[0].Cells[4].Value.ToString();
+            wage.Text = StaffView.SelectedRows[0].Cells[5].Value.ToString();
             joindate.Text = StaffView.SelectedRows[0].Cells[6].Value.ToString();
             br_id.Text = StaffView.SelectedRows[0].Cells[7].Value.ToString();
         }

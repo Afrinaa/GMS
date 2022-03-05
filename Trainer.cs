@@ -55,8 +55,8 @@ namespace GMS
             tname.Text = TrainerView.SelectedRows[0].Cells[1].Value.ToString();
             taddress.Text = TrainerView.SelectedRows[0].Cells[2].Value.ToString();
             tnum.Text = TrainerView.SelectedRows[0].Cells[3].Value.ToString();
-            payment.Text = TrainerView.Rows[0].Cells[4].Value.ToString();
-            regdate.Text = TrainerView.Rows[0].Cells[5].Value.ToString();
+            payment.Text = TrainerView.SelectedRows[0].Cells[4].Value.ToString();
+            regdate.Text = TrainerView.SelectedRows[0].Cells[5].Value.ToString();
             sc_id.Text = TrainerView.SelectedRows[0].Cells[6].Value.ToString();
             br_id.Text = TrainerView.SelectedRows[0].Cells[7].Value.ToString();
         }
@@ -68,7 +68,7 @@ namespace GMS
 
             MySqlCommand cmd;
             cmd = con.CreateCommand();
-            cmd.CommandText = "INSERT INTO trainer(t_name, t_address, t_num, payment, sc_id, br_id) VALUES(@TrainerName, @TrainerAddress, @TrainerNum, @Payment, @StayDate, @ScID, @BrID)";
+            cmd.CommandText = "INSERT INTO trainer(t_name, t_address, t_num, payment, sc_id, br_id) VALUES(@TrainerName, @TrainerAddress, @TrainerNum, @Payment, @ScID, @BrID)";
             cmd.Parameters.AddWithValue("@TrainerName", tname.Text);
             cmd.Parameters.AddWithValue("@TrainerAddress", taddress.Text);
             cmd.Parameters.AddWithValue("@TrainerNum", tnum.Text);

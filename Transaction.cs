@@ -61,6 +61,7 @@ namespace GMS
             details.Text = CostView.SelectedRows[0].Cells[5].Value.ToString();
             dateTimePicker1.Text = CostView.SelectedRows[0].Cells[6].Value.ToString();
             br_id.Text = CostView.SelectedRows[0].Cells[7].Value.ToString();
+            refid.Text = CostView.SelectedRows[0].Cells[8].Value.ToString();
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace GMS
 
             MySqlCommand cmd;
             cmd = con.CreateCommand();
-            cmd.CommandText = "INSERT INTO cost(c_name, unit, quantity, total, details, c_date, br_id) VALUES(@CostName, @CostUnit, @CostQuantity, @CostTotal, @CostDetails, @CostDate, @BrID)";
+            cmd.CommandText = "INSERT INTO cost(c_name, unit, quantity, total, details, c_date, br_id, ref_id) VALUES(@CostName, @CostUnit, @CostQuantity, @CostTotal, @CostDetails, @CostDate, @BrID, @RefID)";
             cmd.Parameters.AddWithValue("@CostName", cname.Text);
             cmd.Parameters.AddWithValue("@CostUnit", unit.Text);
             cmd.Parameters.AddWithValue("@CostQuantity", quantity.Text);
@@ -81,6 +82,7 @@ namespace GMS
             cmd.Parameters.AddWithValue("@CostDetails", details.Text);
             cmd.Parameters.AddWithValue("@CostDate", this.dateTimePicker1.Text);
             cmd.Parameters.AddWithValue("@BrID", br_id.Text);
+            cmd.Parameters.AddWithValue("@RefID", refid.Text);
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Data successfully inserted.");
@@ -110,7 +112,7 @@ namespace GMS
 
                 MySqlCommand cmd;
                 cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE cost SET c_name = @CostName, unit = @CostUnit, details = @CostDetails, c_date = @CostDate, br_id = @BrID WHERE c_id = @CostID";
+                cmd.CommandText = "UPDATE cost SET c_name = @CostName, unit = @CostUnit, details = @CostDetails, quantity = @CostQuantity, total = @CostTotal, c_date = @CostDate, ref_id = @RefID, br_id = @BrID WHERE c_id = @CostID";
                 cmd.Parameters.AddWithValue("@CostID", this.id);
                 cmd.Parameters.AddWithValue("@CostName", cname.Text);
                 cmd.Parameters.AddWithValue("@CostUnit", unit.Text);
@@ -122,6 +124,7 @@ namespace GMS
                 cmd.Parameters.AddWithValue("@CostDetails", details.Text);
                 cmd.Parameters.AddWithValue("@CostDate", dateTimePicker1.Text);
                 cmd.Parameters.AddWithValue("@BrID", br_id.Text);
+                cmd.Parameters.AddWithValue("@RefID", refid.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Data successfully updated.");
@@ -160,6 +163,28 @@ namespace GMS
             {
                 MessageBox.Show("Please, select a transaction.");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_btn_Click(object sender, EventArgs e)
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+
+            MySqlCommand cmd;
+            cmd = con.CreateCommand();
+            cmd.CommandText = "SELECT * FROM cost WHERE c_date BETWEEN @d1 AND @d2";
+            cmd.Parameters.Add("@d1", MySqlDbType.Date).Value = dateTimePicker2.Value;
+            cmd.Parameters.Add("@d2", MySqlDbType.Date).Value = dateTimePicker3.Value;
+            MySqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            con.Close();
+            CostView.DataSource = dt;
         }
     }
 }
