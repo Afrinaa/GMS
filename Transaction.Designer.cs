@@ -469,7 +469,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(918, 599);
+            this.ClientSize = new System.Drawing.Size(923, 599);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.receipt_btn);
             this.Controls.Add(this.preview_btn);

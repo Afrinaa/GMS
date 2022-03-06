@@ -155,5 +155,10 @@ namespace GMS
                 MessageBox.Show("Please, select a member.");
             }
         }
+
+        private void reset_btn_Click(object sender, EventArgs e)
+        {
+            ResetFormData();
+        }
     }
     }

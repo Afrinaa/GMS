@@ -100,6 +100,7 @@ namespace GMS
             quantity.Clear();
             total.Clear();
             details.Clear();
+            refid.Clear();
             dateTimePicker1.Value = DateTime.Now;
             br_id.Clear();
         }
