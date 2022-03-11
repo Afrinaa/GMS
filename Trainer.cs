@@ -26,6 +26,39 @@ namespace GMS
         private void Trainer_Load(object sender, EventArgs e)
         {
             GetTrainerRecord();
+            GetComboBoxSc();
+            sc_id.SelectedIndex = -1;
+            GetComboBoxBr();
+            br_id.SelectedIndex = -1;
+        }
+
+        private void GetComboBoxSc()
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from schedule", con);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            sc_id.ValueMember = "sc_id";
+            sc_id.DisplayMember = "sc_id";
+            sc_id.DataSource = dt;
+            con.Close();
+        }
+        private void GetComboBoxBr()
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from branch", con);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            br_id.ValueMember = "br_id";
+            br_id.DisplayMember = "br_id";
+            br_id.DataSource = dt;
+            con.Close();
         }
         private int id;
         private void GetTrainerRecord()
@@ -91,8 +124,8 @@ namespace GMS
             tnum.Clear();
             payment.Clear();
             regdate.Clear();    
-            br_id.Clear();
-            sc_id.Clear(); 
+            br_id.SelectedIndex = -1;
+            sc_id.SelectedIndex = -1;
         }
 
         private void reset_btn_Click(object sender, EventArgs e)

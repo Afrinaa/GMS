@@ -27,6 +27,23 @@ namespace GMS
         private void Transaction_Load(object sender, EventArgs e)
         {
             GetCostRecord();
+            GetComboBoxBr();
+            br_id.SelectedIndex = -1;
+        }
+
+        private void GetComboBoxBr()
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from branch", con);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            br_id.ValueMember = "br_id";
+            br_id.DisplayMember = "br_id";
+            br_id.DataSource = dt;
+            con.Close();
         }
 
         private void GetCostRecord()
@@ -102,7 +119,7 @@ namespace GMS
             details.Clear();
             refid.Clear();
             dateTimePicker1.Value = DateTime.Now;
-            br_id.Clear();
+            br_id.SelectedIndex = -1;
         }
 
         private void update_btn_Click(object sender, EventArgs e)
@@ -196,10 +213,11 @@ namespace GMS
 
         private void print_btn_Click(object sender, EventArgs e)
         {
+            printDocument1.DefaultPageSettings.Landscape = true;
             int height = CostView.Height;
             CostView.Height = CostView.RowCount*CostView.RowTemplate.Height*2;
             bmp = new Bitmap(CostView.Width, CostView.Height);
-            CostView.DrawToBitmap(bmp, new Rectangle(0, 0, CostView.Width, CostView.Height));
+            CostView.DrawToBitmap(bmp, new Rectangle(0, 0, this.CostView.Width, this.CostView.Height));
             printPreviewDialog1.PrintPreviewControl.Zoom=1;
             printPreviewDialog1.ShowDialog();
             CostView.Height -= height;

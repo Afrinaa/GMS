@@ -16,11 +16,45 @@ namespace GMS
         public Member()
         {
             InitializeComponent();
+
         }
 
         private void Member_Load(object sender, EventArgs e)
         {
             GetMemberRecord();
+            GetComboBox1();
+            comboBox1.SelectedIndex = -1;
+            GetComboBoxBr();
+            br_id.SelectedIndex = -1;
+        }
+        
+        private void GetComboBox1()
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from schedule", con);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            
+            comboBox1.ValueMember = "sc_id";
+            comboBox1.DisplayMember = "sc_id";
+            comboBox1.DataSource = dt;
+            con.Close();
+        }
+        private void GetComboBoxBr()
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from branch", con);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            br_id.ValueMember = "br_id";
+            br_id.DisplayMember = "br_id";
+            br_id.DataSource = dt;
+            con.Close();
         }
         private int id;
         private void GetMemberRecord()
@@ -61,9 +95,9 @@ namespace GMS
             cmd.Parameters.AddWithValue("@MemberAddress", maddress.Text);
             cmd.Parameters.AddWithValue("@MemberNum", mnum.Text);
             cmd.Parameters.AddWithValue("@Fees", fees.Text);
-            cmd.Parameters.AddWithValue("@Membership",mem_status.Text);
+            cmd.Parameters.AddWithValue("@Membership", mem_status.Text);
             cmd.Parameters.AddWithValue("@TID", t_id.Text);
-            cmd.Parameters.AddWithValue("@ScID", sc_id.Text);
+            cmd.Parameters.AddWithValue("@ScID", comboBox1.Text);
             cmd.Parameters.AddWithValue("@BrID", br_id.Text);
             cmd.ExecuteNonQuery();
             con.Close();
@@ -83,8 +117,8 @@ namespace GMS
             fees.Clear();
             mem_status.Clear();
             t_id.Clear();
-            sc_id.Clear();
-            br_id.Clear();
+            comboBox1.SelectedIndex = -1;
+            br_id.SelectedIndex = -1;
         }
 
         private void MemberView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -98,8 +132,10 @@ namespace GMS
             fees.Text = MemberView.SelectedRows[0].Cells[4].Value.ToString();
             mem_status.Text = MemberView.SelectedRows[0].Cells[6].Value.ToString();
             t_id.Text = MemberView.SelectedRows[0].Cells[7].Value.ToString();
-            sc_id.Text = MemberView.SelectedRows[0].Cells[8].Value.ToString(); 
+            //sc_id.Text = MemberView.SelectedRows[0].Cells[8].Value.ToString();
             br_id.Text = MemberView.SelectedRows[0].Cells[9].Value.ToString();
+            comboBox1.Text = MemberView.SelectedRows[0].Cells[8].Value.ToString();
+            //comboBox2.Text = MemberView.SelectedRows[0].Cells[7].Value.ToString();
         }
 
         private void update_btn_Click(object sender, EventArgs e)
@@ -118,8 +154,8 @@ namespace GMS
                 cmd.Parameters.AddWithValue("@MemberNum", mnum.Text);
                 cmd.Parameters.AddWithValue("@Fees", fees.Text);
                 cmd.Parameters.AddWithValue("@@Membership", mem_status.Text);
-                cmd.Parameters.AddWithValue("@TID",t_id.Text);
-                cmd.Parameters.AddWithValue("@ScID", sc_id.Text);
+                cmd.Parameters.AddWithValue("@TID", t_id.Text);
+                cmd.Parameters.AddWithValue("@ScID", comboBox1.Text);
                 cmd.Parameters.AddWithValue("@BrID", br_id.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -160,5 +196,37 @@ namespace GMS
         {
             ResetFormData();
         }
+        public int sid;
+        public string scid;
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*if (comboBox1.SelectedText != "")//comboBox1.SelectedValue.ToString() != null)
+            {
+                scid = Convert.ToString(comboBox1.SelectedText);
+                //sid = Convert.ToInt32(comboBox1.SelectedItem.ToString());
+                GetComboBox2(scid);
+            }*/
+        }
+
+        /*private void GetComboBox2(string sid)
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM trainer WHERE sc_id = @sid", con);
+            cmd.Parameters.AddWithValue("@sid", sid);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            
+
+            comboBox2.ValueMember = "t_id";
+            comboBox2.DisplayMember = "t_id";
+            comboBox2.DataSource = dt;
+            con.Close();
+        }*/
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
     }
-    }
+}

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transaction));
             this.details = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.delete_btn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
             this.CostView = new System.Windows.Forms.DataGridView();
-            this.br_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.unit = new System.Windows.Forms.TextBox();
@@ -67,7 +67,10 @@
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.br_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.CostView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // details
@@ -148,15 +151,6 @@
             this.CostView.Size = new System.Drawing.Size(900, 184);
             this.CostView.TabIndex = 84;
             this.CostView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberView_CellContentClick);
-            // 
-            // br_id
-            // 
-            this.br_id.BackColor = System.Drawing.SystemColors.Window;
-            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.br_id.Location = new System.Drawing.Point(91, 286);
-            this.br_id.Name = "br_id";
-            this.br_id.Size = new System.Drawing.Size(330, 23);
-            this.br_id.TabIndex = 83;
             // 
             // label9
             // 
@@ -464,12 +458,26 @@
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // br_id
+            // 
+            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.br_id.FormattingEnabled = true;
+            this.br_id.Location = new System.Drawing.Point(91, 287);
+            this.br_id.Name = "br_id";
+            this.br_id.Size = new System.Drawing.Size(330, 24);
+            this.br_id.TabIndex = 109;
+            // 
             // Transaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(923, 599);
+            this.Controls.Add(this.br_id);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.receipt_btn);
             this.Controls.Add(this.preview_btn);
@@ -493,7 +501,6 @@
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.CostView);
-            this.Controls.Add(this.br_id);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.unit);
@@ -509,6 +516,7 @@
             this.Text = "Transaction";
             this.Load += new System.EventHandler(this.Transaction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CostView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,7 +530,6 @@
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.DataGridView CostView;
-        private System.Windows.Forms.TextBox br_id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox unit;
@@ -553,5 +560,7 @@
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox br_id;
     }
 }

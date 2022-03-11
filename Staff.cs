@@ -46,6 +46,22 @@ namespace GMS
         private void Staff_Load(object sender, EventArgs e)
         {
             GetStaffRecord();
+            GetComboBoxBr();
+            br_id.SelectedIndex = -1;
+        }
+        private void GetComboBoxBr()
+        {
+            MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from branch", con);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            br_id.ValueMember = "br_id";
+            br_id.DisplayMember = "br_id";
+            br_id.DataSource = dt;
+            con.Close();
         }
 
         private void GetStaffRecord()
@@ -72,7 +88,7 @@ namespace GMS
             work.Clear();
             wage.Clear();
             joindate.Clear();
-            br_id.Clear();
+            br_id.SelectedIndex = -1;
         }
         private void insert_btn_Click(object sender, EventArgs e)
         {

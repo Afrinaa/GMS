@@ -35,7 +35,6 @@
             this.delete_btn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
             this.EquipmentView = new System.Windows.Forms.DataGridView();
-            this.br_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.qnt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.br_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.EquipmentView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,15 +128,6 @@
             this.EquipmentView.Size = new System.Drawing.Size(876, 199);
             this.EquipmentView.TabIndex = 84;
             this.EquipmentView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EquipmentView_CellContentClick);
-            // 
-            // br_id
-            // 
-            this.br_id.BackColor = System.Drawing.SystemColors.Window;
-            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.br_id.Location = new System.Drawing.Point(553, 122);
-            this.br_id.Name = "br_id";
-            this.br_id.Size = new System.Drawing.Size(330, 23);
-            this.br_id.TabIndex = 83;
             // 
             // label9
             // 
@@ -254,12 +245,22 @@
             this.linkLabel1.Text = "Equipment Details";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // br_id
+            // 
+            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.br_id.FormattingEnabled = true;
+            this.br_id.Location = new System.Drawing.Point(553, 124);
+            this.br_id.Name = "br_id";
+            this.br_id.Size = new System.Drawing.Size(330, 24);
+            this.br_id.TabIndex = 91;
+            // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(895, 424);
+            this.Controls.Add(this.br_id);
             this.Controls.Add(this.u_price);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.reset_btn);
@@ -267,7 +268,6 @@
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.EquipmentView);
-            this.Controls.Add(this.br_id);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.qnt);
             this.Controls.Add(this.label6);
@@ -298,7 +298,6 @@
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.DataGridView EquipmentView;
-        private System.Windows.Forms.TextBox br_id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox qnt;
         private System.Windows.Forms.Label label6;
@@ -310,5 +309,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox br_id;
     }
 }

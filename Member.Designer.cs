@@ -33,9 +33,7 @@
             this.delete_btn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
             this.MemberView = new System.Windows.Forms.DataGridView();
-            this.br_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.sc_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.regdate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,6 +53,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.t_id = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.br_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.MemberView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,15 +117,6 @@
             this.MemberView.TabIndex = 57;
             this.MemberView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MemberView_CellContentClick);
             // 
-            // br_id
-            // 
-            this.br_id.BackColor = System.Drawing.SystemColors.Window;
-            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.br_id.Location = new System.Drawing.Point(539, 171);
-            this.br_id.Name = "br_id";
-            this.br_id.Size = new System.Drawing.Size(330, 23);
-            this.br_id.TabIndex = 56;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -137,21 +128,12 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "Branch";
             // 
-            // sc_id
-            // 
-            this.sc_id.BackColor = System.Drawing.SystemColors.Window;
-            this.sc_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sc_id.Location = new System.Drawing.Point(539, 142);
-            this.sc_id.Name = "sc_id";
-            this.sc_id.Size = new System.Drawing.Size(330, 23);
-            this.sc_id.TabIndex = 54;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(462, 149);
+            this.label8.Location = new System.Drawing.Point(462, 120);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 16);
             this.label8.TabIndex = 53;
@@ -326,7 +308,7 @@
             // 
             this.t_id.BackColor = System.Drawing.SystemColors.Window;
             this.t_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t_id.Location = new System.Drawing.Point(539, 113);
+            this.t_id.Location = new System.Drawing.Point(539, 142);
             this.t_id.Name = "t_id";
             this.t_id.Size = new System.Drawing.Size(330, 23);
             this.t_id.TabIndex = 65;
@@ -336,11 +318,30 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(462, 120);
+            this.label11.Location = new System.Drawing.Point(472, 149);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 16);
             this.label11.TabIndex = 64;
             this.label11.Text = "Trainer";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(539, 112);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(330, 24);
+            this.comboBox1.TabIndex = 66;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // br_id
+            // 
+            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.br_id.FormattingEnabled = true;
+            this.br_id.Location = new System.Drawing.Point(539, 173);
+            this.br_id.Name = "br_id";
+            this.br_id.Size = new System.Drawing.Size(330, 24);
+            this.br_id.TabIndex = 67;
             // 
             // Member
             // 
@@ -348,6 +349,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(882, 517);
+            this.Controls.Add(this.br_id);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.t_id);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.mem_status);
@@ -357,9 +360,7 @@
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.MemberView);
-            this.Controls.Add(this.br_id);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.sc_id);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.regdate);
             this.Controls.Add(this.label7);
@@ -392,9 +393,7 @@
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.DataGridView MemberView;
-        private System.Windows.Forms.TextBox br_id;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox sc_id;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox regdate;
         private System.Windows.Forms.Label label7;
@@ -414,5 +413,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox t_id;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox br_id;
     }
 }

@@ -33,7 +33,6 @@
             this.delete_btn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
             this.StaffView = new System.Windows.Forms.DataGridView();
-            this.br_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.joindate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label10 = new System.Windows.Forms.Label();
+            this.br_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.StaffView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,15 +113,6 @@
             this.StaffView.Size = new System.Drawing.Size(857, 243);
             this.StaffView.TabIndex = 57;
             this.StaffView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffView_CellContentClick);
-            // 
-            // br_id
-            // 
-            this.br_id.BackColor = System.Drawing.SystemColors.Window;
-            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.br_id.Location = new System.Drawing.Point(539, 153);
-            this.br_id.Name = "br_id";
-            this.br_id.Size = new System.Drawing.Size(330, 23);
-            this.br_id.TabIndex = 56;
             // 
             // label9
             // 
@@ -309,19 +300,28 @@
             this.label10.Text = "X";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
+            // br_id
+            // 
+            this.br_id.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.br_id.FormattingEnabled = true;
+            this.br_id.Location = new System.Drawing.Point(539, 155);
+            this.br_id.Name = "br_id";
+            this.br_id.Size = new System.Drawing.Size(330, 24);
+            this.br_id.TabIndex = 63;
+            // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(881, 512);
+            this.Controls.Add(this.br_id);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.reset_btn);
             this.Controls.Add(this.update_btn);
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.StaffView);
-            this.Controls.Add(this.br_id);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.joindate);
             this.Controls.Add(this.label8);
@@ -356,7 +356,6 @@
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.DataGridView StaffView;
-        private System.Windows.Forms.TextBox br_id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox joindate;
         private System.Windows.Forms.Label label8;
@@ -375,5 +374,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox br_id;
     }
 }
