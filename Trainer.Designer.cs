@@ -51,6 +51,7 @@
             this.insert_btn = new System.Windows.Forms.Button();
             this.sc_id = new System.Windows.Forms.ComboBox();
             this.br_id = new System.Windows.Forms.ComboBox();
+            this.search_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TrainerView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,7 +237,7 @@
             // 
             this.reset_btn.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reset_btn.ForeColor = System.Drawing.Color.Black;
-            this.reset_btn.Location = new System.Drawing.Point(620, 190);
+            this.reset_btn.Location = new System.Drawing.Point(579, 187);
             this.reset_btn.Name = "reset_btn";
             this.reset_btn.Size = new System.Drawing.Size(75, 23);
             this.reset_btn.TabIndex = 38;
@@ -248,7 +249,7 @@
             // 
             this.update_btn.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update_btn.ForeColor = System.Drawing.Color.Black;
-            this.update_btn.Location = new System.Drawing.Point(338, 190);
+            this.update_btn.Location = new System.Drawing.Point(297, 187);
             this.update_btn.Name = "update_btn";
             this.update_btn.Size = new System.Drawing.Size(75, 23);
             this.update_btn.TabIndex = 37;
@@ -260,7 +261,7 @@
             // 
             this.delete_btn.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_btn.ForeColor = System.Drawing.Color.Black;
-            this.delete_btn.Location = new System.Drawing.Point(479, 190);
+            this.delete_btn.Location = new System.Drawing.Point(438, 187);
             this.delete_btn.Name = "delete_btn";
             this.delete_btn.Size = new System.Drawing.Size(75, 23);
             this.delete_btn.TabIndex = 36;
@@ -272,7 +273,7 @@
             // 
             this.insert_btn.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insert_btn.ForeColor = System.Drawing.Color.Black;
-            this.insert_btn.Location = new System.Drawing.Point(197, 190);
+            this.insert_btn.Location = new System.Drawing.Point(156, 187);
             this.insert_btn.Name = "insert_btn";
             this.insert_btn.Size = new System.Drawing.Size(75, 23);
             this.insert_btn.TabIndex = 35;
@@ -298,12 +299,24 @@
             this.br_id.Size = new System.Drawing.Size(327, 24);
             this.br_id.TabIndex = 40;
             // 
+            // search_btn
+            // 
+            this.search_btn.Font = new System.Drawing.Font("Mimmo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_btn.Location = new System.Drawing.Point(713, 187);
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(75, 23);
+            this.search_btn.TabIndex = 41;
+            this.search_btn.Text = "Search";
+            this.search_btn.UseVisualStyleBackColor = true;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
+            // 
             // Trainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(881, 500);
+            this.Controls.Add(this.search_btn);
             this.Controls.Add(this.br_id);
             this.Controls.Add(this.sc_id);
             this.Controls.Add(this.reset_btn);
@@ -363,5 +376,6 @@
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.ComboBox sc_id;
         private System.Windows.Forms.ComboBox br_id;
+        private System.Windows.Forms.Button search_btn;
     }
 }

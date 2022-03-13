@@ -131,6 +131,7 @@ namespace GMS
         private void reset_btn_Click(object sender, EventArgs e)
         {
             ResetFormData();
+            GetTrainerRecord();
         }
 
         private void update_btn_Click(object sender, EventArgs e)
@@ -183,6 +184,42 @@ namespace GMS
             {
                 MessageBox.Show("Please, select a trainer.");
             }
+        }
+
+        private void search_btn_Click(object sender, EventArgs e)
+        {
+            
+            if (tid.Text != null)
+            {
+                MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+                con.Open();
+
+                MySqlCommand cmd;
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM trainer WHERE t_id = @TrainerID";
+                cmd.Parameters.AddWithValue("@TrainerID", tid.Text);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(sdr);
+                con.Close();
+                TrainerView.DataSource = dt;
+            }
+            if (tname.Text.Length != 0)
+            {
+                MySqlConnection con = new MySqlConnection(ConnectionDB.ConnectionString());
+                con.Open();
+
+                MySqlCommand cmd;
+                cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM trainer WHERE t_name LIKE @TrainerName";
+                cmd.Parameters.AddWithValue("@TrainerName", tname.Text);
+                MySqlDataReader sdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(sdr);
+                con.Close();
+                TrainerView.DataSource = dt;
+            }
+
         }
     }
 }
